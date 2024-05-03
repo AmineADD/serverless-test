@@ -19,14 +19,12 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         message: "Received your input!",
         yourInput: userInput,
       }),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
     };
   } catch (error) {
     console.log(error);
@@ -34,14 +32,12 @@ exports.handler = async (event, context) => {
       statusCode: 500,
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         message: "Error on the catch of serverless function",
         error: error.message,
       }),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
     };
   }
 };
